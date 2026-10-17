@@ -1,0 +1,81 @@
+:root {
+  --bg: #f4f7f5;
+  --ink: #15231f;
+  --muted: #55655f;
+  --line: #cfd9d4;
+  --route: #0d6b5b;
+  --sign: #e3a400;
+  --max: 920px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Figtree", "Segoe UI", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+a { color: var(--route); text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+a:focus-visible { outline: 3px solid var(--sign); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.15;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+/* Hero */
+.hero { padding: 5rem 0 3.5rem; }
+.hero h1 { font-size: clamp(2.8rem, 9vw, 5.5rem); font-weight: 800; letter-spacing: -0.03em; }
+.hero .lead { font-size: 1.35rem; max-width: 30em; margin-top: 1.25rem; }
+.hero .where { color: var(--muted); margin-top: 0.75rem; }
+.links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+.btn {
+  display: inline-block; padding: 0.6rem 1.15rem; border: 2px solid var(--ink);
+  border-radius: 6px; color: var(--ink); text-decoration: none; font-weight: 600;
+}
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn.primary { background: var(--route); border-color: var(--route); color: #fff; }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); }
+
+/* Route rail: sections hang off a single line, like stops on a route */
+main { border-left: 3px solid var(--route); margin-left: 0.45rem; }
+section { padding: 2.5rem 0 2.5rem 1.75rem; position: relative; }
+section::before {
+  content: ""; position: absolute; left: -0.62rem; top: 3.05rem;
+  width: 0.95rem; height: 0.95rem; background: var(--bg);
+  border: 3px solid var(--route); border-radius: 50%;
+}
+section#projects::before { background: var(--sign); border-color: var(--ink); }
+h2 { font-size: 1.9rem; margin-bottom: 1.25rem; }
+
+/* Projects */
+.project { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.project:first-of-type { border-top: 0; padding-top: 0; }
+.project h3 { font-size: 1.4rem; }
+.stack { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.6rem; }
+.project p { max-width: 38em; }
+.project .links { margin-top: 0.9rem; gap: 1.25rem; }
+.project .links a { font-weight: 600; }
+
+/* Timeline and lists */
+.item { margin-bottom: 1.25rem; }
+.item h3 { font-size: 1.15rem; }
+.item .meta { color: var(--muted); font-size: 0.95rem; }
+dl.skills { display: grid; grid-template-columns: 11rem 1fr; gap: 0.5rem 1.25rem; }
+dl.skills dt { font-weight: 700; }
+dl.skills dd { margin: 0; }
+
+footer { padding: 2.5rem 0 3.5rem; color: var(--muted); font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .hero { padding: 3rem 0 2rem; }
+  dl.skills { grid-template-columns: 1fr; gap: 0.1rem; }
+  dl.skills dd { margin-bottom: 0.6rem; }
+}
